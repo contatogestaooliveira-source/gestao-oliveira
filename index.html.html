@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contabilidade e gestão financeira para dentistas, consultórios e clínicas odontológicas. Organize seu negócio, tenha controle dos números e cresça com planejamento.">
+  <meta name="theme-color" content="#0B1420">
+  <title>Gestão Oliveira | Contabilidade para Dentistas</title>
+  <style>
+    :root{
+      --navy:#0B1420; --blue:#203F65; --cream:#F5F3EE;
+      --gold:#FFB900; --teal:#299F91; --ink:#172536;
+      --muted:#667486; --white:#fff; --line:rgba(32,63,101,.13);
+      --shadow:0 18px 50px rgba(11,20,32,.10); --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1140px,calc(100% - 40px));margin:auto}
+    .topbar{background:var(--navy);color:#dce5ef;font-size:.82rem;padding:9px 0}
+    .topbar .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.04em;color:var(--navy)}
+    .brand-mark{width:46px;height:46px;border-radius:14px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-size:1.05rem;letter-spacing:-.08em;box-shadow:inset -5px -5px 0 rgba(41,159,145,.45)}
+    .brand small{display:block;font-size:.62rem;letter-spacing:.14em;color:var(--muted);font-weight:750;margin-top:-3px}
+    .navlinks{display:flex;align-items:center;gap:25px;font-size:.9rem;font-weight:650;color:#435267}
+    .navlinks a:hover{color:var(--teal)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:999px;font-weight:800;border:0;cursor:pointer;transition:.2s transform,.2s box-shadow,.2s background}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(11,20,32,.16)}
+    .btn-gold{background:var(--gold);color:var(--navy)}
+    .btn-dark{background:var(--navy);color:#fff}
+    .btn-outline{border:1px solid rgba(255,255,255,.35);color:#fff}
+    .menu-btn{display:none;background:var(--cream);border:0;border-radius:12px;padding:10px 13px;color:var(--navy);font-size:1.2rem}
+    .hero{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding:94px 0 90px}
+    .hero:before{content:"";position:absolute;width:530px;height:530px;border-radius:50%;background:radial-gradient(circle,rgba(41,159,145,.28),transparent 68%);right:-100px;top:-180px}
+    .hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;border:1px solid rgba(255,185,0,.22);right:9%;bottom:-245px}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:55px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--teal);font-size:.76rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+    .hero .eyebrow{color:#8bd8ce}
+    .eyebrow:before{content:"";width:24px;height:2px;background:var(--gold)}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(2.55rem,5vw,4.65rem);line-height:1.03;letter-spacing:-.055em;margin:20px 0}
+    h1 em{font-style:normal;color:var(--gold)}
+    .hero p{font-size:1.1rem;color:#c5d0dc;max-width:610px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .trustline{display:flex;gap:18px;flex-wrap:wrap;margin-top:35px;color:#c4d1dc;font-size:.83rem}
+    .trustline span:before{content:"✓";color:var(--teal);font-weight:900;margin-right:7px}
+    .hero-card{background:linear-gradient(145deg,#fff,#edf2f1);color:var(--ink);border-radius:28px;padding:14px;box-shadow:0 28px 70px rgba(0,0,0,.25);transform:rotate(1.2deg);overflow:hidden}
+
+    .hero-story{transform:rotate(.4deg);padding:12px;background:#fbfaf6}
+    .hero-story .hero-card-content{padding:17px 14px 12px}
+    .story-kicker{display:inline-block;color:#168879;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+    .hero-story h3{font-size:1.35rem;line-height:1.16;letter-spacing:-.04em;color:var(--navy);margin:0 0 17px}
+    .day-notes{display:grid;gap:9px}
+    .day-note{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;background:#fff;border:1px solid #e9ece8;border-radius:13px}
+    .day-note span{flex:0 0 64px;color:#168879;font-size:.68rem;font-weight:850;padding-top:2px;letter-spacing:.04em}
+    .day-note p{margin:0;color:#45515c;font-size:.84rem;line-height:1.35}
+    .story-signoff{display:flex;align-items:center;gap:11px;margin-top:15px;padding:12px;background:#edf5f1;border-radius:14px}
+    .go-mark{display:grid;place-items:center;flex:0 0 40px;height:40px;border-radius:12px;background:var(--navy);color:#f1c65b;font-weight:900;letter-spacing:-.06em}
+    .story-signoff p{margin:0;color:#294b49;font-size:.8rem;line-height:1.4;font-weight:650}
+    .dental-graphic{height:220px;position:relative;overflow:hidden;border-radius:20px;background:radial-gradient(circle at 50% 45%,#fff 0 23%,transparent 24%),linear-gradient(135deg,#e6f3ef,#f7f1df 58%,#e5eef4)}
+    .graphic-orbit{position:absolute;border:1px solid rgba(22,136,121,.2);border-radius:50%;transform:rotate(-20deg)}
+    .orbit-one{width:280px;height:150px;left:50%;top:35px;margin-left:-140px}.orbit-two{width:230px;height:185px;left:50%;top:15px;margin-left:-115px;transform:rotate(38deg)}
+    .tooth-sticker{position:absolute;width:105px;height:125px;left:50%;top:40px;margin-left:-52px;filter:drop-shadow(0 12px 12px rgba(17,55,65,.12));z-index:2}
+    .tooth-sticker svg{width:100%;height:100%}
+    .float-label{position:absolute;z-index:3;border-radius:30px;padding:7px 11px;background:#fff;color:#167f73;font-size:.62rem;font-weight:900;letter-spacing:.08em;box-shadow:0 5px 15px #1234}
+    .label-clinic{left:18px;top:30px;transform:rotate(-7deg)}.label-care{right:18px;bottom:32px;transform:rotate(6deg);background:#fff4d6;color:#8b6710}
+    .graphic-tool{position:absolute;z-index:3;background:#fff;border:1px solid #e4ece8;border-radius:13px;box-shadow:0 8px 20px rgba(18,50,55,.1);color:#27434a}
+    .tool-mirror{width:42px;height:42px;left:53px;bottom:35px;border-radius:50%;display:grid;place-items:center;color:#d6a72c;font-size:1.3rem}
+    .tool-calendar{right:28px;top:24px;padding:9px 10px;font-size:.56rem}.tool-calendar b,.tool-chart b{display:block;font-size:.53rem;letter-spacing:.08em;color:#168879;margin-bottom:5px}
+    .tool-chart{left:25px;top:105px;padding:8px 10px;width:78px}.mini-bars{height:25px;display:flex;align-items:end;gap:4px}.mini-bars i{display:block;flex:1;background:#35a18e;border-radius:3px 3px 0 0;height:45%}.mini-bars i:nth-child(2){height:75%;background:#e7bd4f}.mini-bars i:nth-child(3){height:58%}.mini-bars i:nth-child(4){height:95%;background:#e7bd4f}
+    .graphic-spark{position:absolute;color:#d9ad36;font-size:1.3rem}.spark-a{right:88px;top:95px}.spark-b{left:105px;bottom:20px;color:#168879}
+
+    .hero-card-content{padding:15px 13px 10px}
+    .dentist-photo{width:100%;height:175px;object-fit:cover;display:block;border-radius:15px;margin:-4px 0 17px}
+    .audience-photo{width:100%;height:150px;object-fit:cover;border-radius:15px;margin-bottom:16px;display:block}
+    section{padding:88px 0}
+    .section-head{max-width:720px;margin-bottom:38px}
+    .section-head h2{font-size:clamp(2rem,3.5vw,3.15rem);line-height:1.1;letter-spacing:-.045em;color:var(--navy);margin:13px 0}
+    .section-head p{color:var(--muted);font-size:1.04rem}
+    .center{text-align:center;margin-left:auto;margin-right:auto}
+    .center .eyebrow{justify-content:center}
+    .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 8px 28px rgba(11,20,32,.045);transition:.25s}
+    .card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:rgba(41,159,145,.45)}
+    .icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#e7f4f1;color:#167f73;font-size:1.35rem;margin-bottom:18px}
+    .card h3{font-size:1.12rem;color:var(--navy);margin-bottom:9px}
+    .card p{font-size:.93rem;color:var(--muted);margin:0}
+    .solutions{background:var(--cream)}
+    .solution-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .solution{display:flex;gap:16px;background:#fff;border:1px solid var(--line);padding:21px;border-radius:18px;transition:.2s}
+    .solution:hover{transform:translateX(4px);box-shadow:var(--shadow)}
+    .solution .icon{flex:0 0 46px;width:46px;height:46px;margin:0;background:#fff4d5;color:#8b6500}
+    .solution h3{font-size:1rem;margin:0 0 5px;color:var(--navy)}
+    .solution p{font-size:.88rem;color:var(--muted);margin:0}
+    .highlight{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+    .highlight .section-head h2{color:#fff}
+    .highlight .section-head p{color:#d2dce6}
+    .highlight .eyebrow{color:#9ce0d7}
+    .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+    .benefit{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);border-radius:18px;padding:20px}
+    .benefit b{display:block;color:var(--gold);font-size:1.8rem;line-height:1.2;margin-bottom:8px}
+    .benefit span{font-size:.9rem;color:#e1e8ef}
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .audience{min-height:205px;display:flex;flex-direction:column;justify-content:space-between}
+    .audience .tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:850}
+    .audience a{font-weight:800;color:var(--blue);font-size:.9rem;margin-top:15px}
+    .cta{background:var(--navy);color:#fff;padding:76px 0}
+    .cta-box{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .cta h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.04em;margin:12px 0}
+    .cta p{color:#c8d3de;max-width:650px;margin:0}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:start}
+    .contact-panel{background:var(--navy);color:#fff;border-radius:25px;padding:30px}
+    .contact-panel h3{font-size:1.5rem;margin-bottom:10px}
+    .contact-panel p{color:#c5d0dc}
+    .contact-link{display:flex;align-items:center;gap:13px;padding:15px 0;border-top:1px solid rgba(255,255,255,.14);font-weight:700;overflow-wrap:anywhere}
+    .contact-link span:first-child{width:40px;height:40px;display:grid;place-items:center;background:rgba(41,159,145,.2);border-radius:12px;color:#8bd8ce}
+    .contact-form{display:grid;gap:14px}
+    label{font-size:.86rem;font-weight:750;color:var(--navy)}
+    input,textarea,select{width:100%;padding:14px 15px;border:1px solid #dce3e8;border-radius:13px;background:#fff;font:inherit;color:var(--ink);outline:none;margin-top:6px}
+    input:focus,textarea:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(41,159,145,.12)}
+    textarea{min-height:120px;resize:vertical}
+    .form-note{font-size:.78rem;color:var(--muted);margin:0}
+    footer{background:#070e17;color:#c5d0dc;padding:30px 0;font-size:.85rem}
+    footer .container{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    footer b{color:#fff}
+    .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:30;background:#1eaa70;color:#fff;padding:13px 18px;border-radius:999px;font-weight:850;box-shadow:0 10px 28px rgba(0,0,0,.22);display:flex;align-items:center;gap:8px}
+    .whatsapp-float:hover{transform:translateY(-3px)}
+    @media(max-width:850px){
+      .hero-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{padding:68px 0}
+      .hero-card{max-width:520px;transform:none}
+      .pain-grid,.audience-grid{grid-template-columns:repeat(2,1fr)}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .cta-box{align-items:flex-start;flex-direction:column}
+      .navlinks{gap:14px}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 32px,520px)}
+      .topbar .container{justify-content:center;text-align:center}
+      .nav{height:68px}
+      .menu-btn{display:block}
+      .navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;padding:18px 22px 22px;border-bottom:1px solid var(--line);box-shadow:0 16px 25px rgba(11,20,32,.08);flex-direction:column;align-items:stretch}
+      .navlinks.open{display:flex}
+      .navlinks a{padding:9px 4px}
+      .navlinks .btn{margin-top:5px}
+      .hero{padding:58px 0 64px}
+      h1{font-size:clamp(2.45rem,12vw,3.45rem)}
+      .hero p{font-size:1rem}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .hero-actions .btn{width:100%}
+      section{padding:65px 0}
+      .pain-grid,.solution-grid,.audience-grid{grid-template-columns:1fr}
+      .benefits{grid-template-columns:1fr 1fr}
+      .card{padding:22px}
+      .contact-panel{padding:24px}
+      .whatsapp-float{right:12px;bottom:12px;padding:12px 15px;font-size:.88rem}
+      footer .container{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>Contabilidade e gestão para profissionais da odontologia</span><span>Organização • Controle • Crescimento</span></div></div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Gestão Oliveira - início">
+        <span class="brand-mark">GO</span><span>GESTÃO OLIVEIRA<small>CONTABILIDADE</small></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav class="navlinks" id="navLinks" aria-label="Navegação principal">
+        <a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#diferenciais">Diferenciais</a><a href="#para-quem">Para quem</a><a href="#contato" class="btn btn-gold">Fale com um especialista</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Contabilidade especializada em odontologia</span>
+          <h1>Cuide dos seus pacientes. <em>Nós ajudamos a cuidar do seu negócio.</em></h1>
+          <p>Organize sua clínica, tenha clareza sobre o dinheiro que entra e sai e tome decisões melhores para construir uma operação mais saudável e lucrativa.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://wa.me/5585987824269?text=Ol%C3%A1!%20Quero%20organizar%20a%20gest%C3%A3o%20financeira%20do%20meu%20neg%C3%B3cio%20odontol%C3%B3gico." target="_blank" rel="noopener">Quero organizar minha clínica <span>↗</span></a>
+            <a class="btn btn-outline" href="#solucoes">Conheça nossas soluções</a>
+          </div>
+          <div class="trustline"><span>Visão clara dos números</span><span>Rotina financeira organizada</span><span>Decisões com planejamento</span></div>
+        </div>
+        <div class="hero-card hero-story" aria-label="Ilustração de elementos da rotina de uma clínica odontológica">
+          <div class="dental-graphic">
+            <div class="graphic-orbit orbit-one"></div><div class="graphic-orbit orbit-two"></div>
+            <span class="float-label label-clinic">CLÍNICA</span>
+            <span class="float-label label-care">CUIDADO</span>
+            <div class="tooth-sticker" aria-hidden="true">
+              <svg viewBox="0 0 120 140" role="img" aria-label="Dente ilustrado">
+                <path d="M60 13c-16-10-43-3-45 22-2 23 11 39 17 59 5 17 8 34 17 34 8 0 7-27 13-39 2-5 4-5 6 0 6 12 5 39 13 39 9 0 12-17 17-34 6-20 19-36 17-59C113 10 86 3 70 13c-4 3-6 4-10 0Z" fill="#fffdf8" stroke="#168879" stroke-width="5" stroke-linejoin="round"/>
+                <path d="M36 34c8-9 18-10 25-6" fill="none" stroke="#dceee8" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="graphic-tool tool-mirror" aria-hidden="true"><span>✦</span></div>
+            <div class="graphic-tool tool-calendar" aria-hidden="true"><b>AGENDA</b><span>✓　✓　○</span></div>
+            <div class="graphic-tool tool-chart" aria-hidden="true"><b>GESTÃO</b><div class="mini-bars"><i></i><i></i><i></i><i></i></div></div>
+            <div class="graphic-spark spark-a">✦</div><div class="graphic-spark spark-b">✧</div>
+          </div>
+          <div class="hero-card-content">
+            <span class="story-kicker">Da cadeira à gestão</span>
+            <h3>Seu foco é cuidar de sorrisos. O nosso é cuidar dos números da sua clínica.</h3>
+            <div class="day-notes">
+              <div class="day-note"><span>ROTINA</span><p>Agenda, equipe e atendimento funcionando.</p></div>
+              <div class="day-note"><span>GESTÃO</span><p>Contas, custos e recebimentos organizados.</p></div>
+              <div class="day-note"><span>RESULTADO</span><p>Mais clareza para decidir os próximos passos.</p></div>
+            </div>
+            <div class="story-signoff"><span class="go-mark">GO</span><p>Contabilidade feita para a realidade de quem vive a odontologia.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="desafios">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Você se identifica?</span>
+          <h2>Ser um ótimo dentista não deveria significar administrar no escuro.</h2>
+          <p>Uma clínica exige atenção a pacientes, equipe, materiais e estrutura. Sem organização financeira, fica difícil saber se o negócio está realmente dando resultado.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="card"><div class="icon">⌁</div><h3>Não sabe quanto realmente sobra?</h3><p>Faturamento não é lucro. É importante conhecer custos, despesas, impostos e o resultado real da operação.</p></article>
+          <article class="card"><div class="icon">◷</div><h3>O dinheiro entra, mas falta controle?</h3><p>Organize contas a pagar e receber, acompanhe o fluxo de caixa e tenha previsibilidade para os compromissos.</p></article>
+          <article class="card"><div class="icon">◎</div><h3>Decisões sem informações?</h3><p>Tenha números organizados para avaliar investimentos, equipe, preços e os próximos passos da clínica.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="solutions" id="solucoes">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Soluções para sua rotina</span>
+          <h2>Mais do que cumprir obrigações: ajudar você a gerir melhor.</h2>
+          <p>Unimos o cuidado contábil à visão de gestão para que você tenha mais organização e controle sobre o seu negócio odontológico.</p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution"><div class="icon">▤</div><div><h3>Contabilidade e obrigações fiscais</h3><p>Rotina contábil e fiscal acompanhada para manter sua empresa organizada e em dia.</p></div></article>
+          <article class="solution"><div class="icon">↗</div><div><h3>Planejamento tributário</h3><p>Análise do enquadramento e de cenários tributários adequados à realidade do negócio.</p></div></article>
+          <article class="solution"><div class="icon">◫</div><div><h3>Organização financeira</h3><p>Estruturação de receitas, despesas, contas a pagar e receber e fluxo de caixa.</p></div></article>
+          <article class="solution"><div class="icon">▥</div><div><h3>Custos e lucratividade</h3><p>Mais clareza sobre custos, margens e resultado para identificar oportunidades de melhoria.</p></div></article>
+          <article class="solution"><div class="icon">⌘</div><div><h3>Indicadores e relatórios</h3><p>Acompanhamento de informações importantes para entender a saúde financeira da clínica.</p></div></article>
+          <article class="solution"><div class="icon">◇</div><div><h3>Planejamento do negócio</h3><p>Orientação para organizar prioridades, avaliar investimentos e crescer com mais segurança.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight" id="diferenciais">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">O que muda na prática</span>
+          <h2>Você no comando. Seu negócio sob controle.</h2>
+          <p>Nosso objetivo é ajudar você a sair da correria sem visão dos números e construir uma rotina de gestão mais organizada.</p>
+        </div>
+        <div class="benefits">
+          <div class="benefit"><b>01</b><span>Organize as finanças pessoais e profissionais.</span></div>
+          <div class="benefit"><b>02</b><span>Entenda custos, despesas e o que realmente sobra.</span></div>
+          <div class="benefit"><b>03</b><span>Acompanhe resultados e evite perder o controle do caixa.</span></div>
+          <div class="benefit"><b>04</b><span>Planeje decisões para buscar mais eficiência e lucratividade.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="para-quem">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Feito para a realidade odontológica</span>
+          <h2>Em que momento sua operação está?</h2>
+          <p>O apoio certo começa entendendo a fase e as necessidades do seu negócio.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="card audience"><div><img class="audience-photo" src="https://images.squarespace-cdn.com/content/v1/5fd8fc8294e5a53aefc76df9/570ac8d1-5b6b-41a4-b049-81c8306ae9e4/Alisa-Reed-doctor-dentist-Living-Magazine-20230210-Z90236-r1.jpg?format=1500w" alt="Dentista empreendedora em seu consultório" loading="lazy"><span class="tag">Começando</span><h3>Dentista autônomo</h3><p>Organize sua atividade profissional, separe as finanças e tenha orientação para estruturar seu negócio.</p></div><a href="#contato">Quero começar organizado ↗</a></article>
+          <article class="card audience"><div><img class="audience-photo" src="https://www.dentorise.com/testimonials/omar.webp" alt="Dentista empresário em clínica moderna" loading="lazy"><span class="tag">Em crescimento</span><h3>Consultório odontológico</h3><p>Tenha controle de recebimentos, despesas e custos para acompanhar o resultado do consultório.</p></div><a href="#contato">Quero controlar melhor ↗</a></article>
+          <article class="card audience"><div><img class="audience-photo" src="https://statics.forbes.com.ec/2025/09/68dc0d87d9eda.jpg" alt="Dentista empreendedor em sua clínica odontológica" loading="lazy"><span class="tag">Em expansão</span><h3>Clínica odontológica</h3><p>Organize processos e indicadores para acompanhar a operação e planejar o crescimento.</p></div><a href="#contato">Quero evoluir a gestão ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-box">
+        <div><span class="eyebrow">O próximo passo começa com uma conversa</span><h2>Não deixe a falta de controle limitar sua clínica.</h2><p>Vamos entender sua realidade e conversar sobre caminhos para organizar a gestão financeira do seu negócio odontológico.</p></div>
+        <a class="btn btn-gold" href="https://wa.me/5585987824269?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20a%20gest%C3%A3o%20da%20minha%20cl%C3%ADnica." target="_blank" rel="noopener">Conversar pelo WhatsApp ↗</a>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Fale com a Gestão Oliveira</span>
+          <h2>Vamos colocar a gestão em ordem?</h2>
+          <p>Conte um pouco sobre seu consultório ou clínica. Será um prazer conversar com você.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <h3>Escolha como prefere falar.</h3>
+            <p>Entre em contato diretamente pelos nossos canais.</p>
+            <a class="contact-link" href="mailto:contatogestaooliveira@gmail.com"><span>✉</span><span>contatogestaooliveira@gmail.com</span></a>
+            <a class="contact-link" href="https://wa.me/5585987824269" target="_blank" rel="noopener"><span>◉</span><span>WhatsApp: (85) 98782-4269</span></a>
+            <p class="note" style="color:#c5d0dc">Gestão Oliveira Contabilidade · Especializada em profissionais da odontologia.</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <label>Seu nome<input name="nome" autocomplete="name" placeholder="Como podemos chamar você?" required></label>
+            <label>Seu e-mail<input name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required></label>
+            <label>Como podemos ajudar?
+              <select name="perfil" required><option value="">Selecione uma opção</option><option>Dentista autônomo</option><option>Consultório odontológico</option><option>Clínica odontológica</option><option>Estou planejando abrir meu negócio</option></select>
+            </label>
+            <label>Mensagem<textarea name="mensagem" placeholder="Conte brevemente o que você gostaria de organizar no seu negócio."></textarea></label>
+            <button class="btn btn-dark" type="submit">Enviar mensagem pelo WhatsApp ↗</button>
+            <p class="form-note">Ao enviar, o WhatsApp será aberto com sua mensagem preenchida. Você poderá revisar e enviar por lá.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><div><b>GO · Gestão Oliveira Contabilidade</b><br>Gestão e contabilidade para profissionais da odontologia.</div><div>© <span id="year"></span> Gestão Oliveira. Todos os direitos reservados.</div></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/5585987824269?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Gest%C3%A3o%20Oliveira." target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">◉ <span>Fale conosco</span></a>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰';});
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+      e.preventDefault();const d=new FormData(this);
+      const msg=`Olá! Meu nome é ${d.get('nome')}.\nE-mail: ${d.get('email')}\nPerfil: ${d.get('perfil')}\nMensagem: ${d.get('mensagem')||'Gostaria de conversar sobre a gestão do meu negócio odontológico.'}`;
+      window.open('https://wa.me/5585987824269?text='+encodeURIComponent(msg),'_blank','noopener');
+    });
+  </script>
+</body>
+</html>
